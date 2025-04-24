@@ -1,5 +1,7 @@
-importScripts("https://www.gstatic.com/firebasejs/10.12.9/firebase-app-compat.js");
-importScripts("https://www.gstatic.com/firebasejs/10.12.9/firebase-messaging-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js");
+
+console.log("[Service Worker] firebase-messaging-sw.js loaded successfully");
 
 firebase.initializeApp({
   apiKey: "AIzaSyAP8Jq96CySgpAEcYU13vMiw95vTlKYAEA",
@@ -11,13 +13,23 @@ firebase.initializeApp({
   measurementId: "G-0KWN75E378"
 });
 
+console.log("[Service Worker] Firebase initialized");
+
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
   console.log('[Push] Background message:', payload);
   const { title, body } = payload.notification;
   self.registration.showNotification(title, {
-    body,
-    icon: '/icons/Icon-192.png'
+    body: body,
+    icon: "/nottest/icons/Icon-192.png"
   });
+});
+
+self.addEventListener('install', (event) => {
+  console.log('[Service Worker] Installed');
+});
+
+self.addEventListener('activate', (event) => {
+  console.log('[Service Worker] Activated');
 });
