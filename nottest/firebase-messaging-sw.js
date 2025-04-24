@@ -22,7 +22,7 @@ messaging.onBackgroundMessage(function(payload) {
   const { title, body } = payload.notification;
   self.registration.showNotification(title, {
     body: body,
-    icon: "/nottest/icons/Icon-192.png"
+    icon: "https://tibarose.github.io/nottest/icons/Icon-192.png"
   });
 });
 
