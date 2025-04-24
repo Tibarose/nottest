@@ -18121,7 +18121,7 @@ q.toString
 p=t.z9
 s=5
 return A.U(A.dR(q,p),$async$wS)
-case 5:A.fy("Service Worker registered successfully")
+case 5:A.fy("Service Worker registered successfully from /nottest/firebase-messaging-sw.js")
 q=window.navigator.serviceWorker.ready
 q.toString
 s=6

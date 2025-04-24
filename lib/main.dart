@@ -24,8 +24,7 @@ void main() async {
   // Step 3: Register the service worker manually for web
   if (html.window.navigator.serviceWorker != null) {
     await html.window.navigator.serviceWorker!.register('/nottest/firebase-messaging-sw.js');
-    print('Service Worker registered successfully');
-    // Wait for the service worker to be ready
+    print('Service Worker registered successfully from /nottest/firebase-messaging-sw.js');
     await html.window.navigator.serviceWorker!.ready;
   }
 
